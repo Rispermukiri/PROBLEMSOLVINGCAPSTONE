@@ -128,7 +128,7 @@ class FlaggedContent(models.Model):
         # Ensure either opportunity or employer is set
         constraints = [
             models.CheckConstraint(
-                check=(
+                condition=(
                     models.Q(opportunity__isnull=False, employer__isnull=True) |
                     models.Q(opportunity__isnull=True, employer__isnull=False)
                 ),
